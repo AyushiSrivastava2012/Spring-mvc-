@@ -10,6 +10,6 @@ public class LoginPageController {
 	
 	@RequestMapping(value="/login")
 	public String getLoginPage(){
-		return "login";
+		return "Login";
 	}
 }
