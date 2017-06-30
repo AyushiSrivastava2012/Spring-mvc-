@@ -1,0 +1,68 @@
+1. $q.defer():
+referred to this tutorial:
+http://www.tothenew.com/blog/angularjs-deferred-promises-basic-understanding/
+
+By the definition,  Promise is an interface which represents a proxy value. ie. We don’t know the value at the time it’s created.
+This promise will return value like any synchronous function in future. There can be several states for a promise.
+pending: initial state, not fulfilled/rejected.
+fulfilled: successful operation
+rejected: failed operation.
+settled: the Promise is either fulfilled or rejected, but not pending.
+
+Promise In Angularjs- $q Service
+
+Promises in AngularJS is provided by $q service. It has reach feature like any other Promise library. $q service is a service that helps you
+to run your code asynchronously.
+Deferred Object:
+Deferred is an object which exposes the promise. It has  mainly three methods resolve(), reject(), and notify(). Deferred returns promise
+object. When Deferred completes, You call methods either resolve(), reject(), and notify() . It calls callback register to either resolve(),
+reject(), or notify() according to how it has completed.
+Example:
+function sayHelloAsync(name) {
+    return function () {
+        var defer = $q.defer()
+        setTimeout(function() {
+            //Greet when your name is 'deepak'
+            if (name == 'deepak') {
+                defer.resolve('Hello, ' + name + '!');
+            }
+            else {
+                defer.reject('Greeting ' + name + ' is not allowed.');
+            }
+        }, 1000);
+
+        return defer.promise
+    }
+
+
+A promise is an object which is return by a Deferred object. You can register different callbacks for different events resolve(), reject(),
+ or notify() and it will execute when the async function has completed.
+
+ Deferred API:
+A new instance of defer is created by calling $q.defer(). It has mainly three methods.
+.resolve(value) – This method is use to resolve the derive promise ie. // promise fulfilled -ve
+.reject(value) – This method is use to reject the derived promise ie. // promise fulfilled -ve
+.notify(value) – This method is used to notify the current state of the derived promise
+
+Promise API
+A new promise is created when you create a defer. You can get the instance of promise object by defer.promise. It is used to getting the result of the defer when a
+ promise has completed. There are three events where you can bind your listeners.
+then(successCallback, errorCallback, notifyCallback)- The Regardless promise is resolved or rejected, it calls one of the success or error
+ callback. Notification callback may be called zero or more than one time.
+catch(errorCallback)- This is the shorthand for the promise.then(null, errorCallback) where success callback is not given.
+finally(callback, notifyCallback)- This allows you to watch every single event of a promise. The callback is called once when either
+ promise is resolved or rejected.
+
+
+ $q.all() : $q.all accepts array of promises as argument. Once all of the promises get
+ completed. you will get the result in callback function as array of results.
+
+var promise1 = $http({method: 'GET', url: '/api-one-url', cache: 'true'});
+var promise2 = $http({method: 'GET', url: '/api-two-url', cache: 'true'});
+
+$q.all([promise1, promise2])
+    .then(function(data){
+        console.log(data[0], data[1]);
+    });
+
+

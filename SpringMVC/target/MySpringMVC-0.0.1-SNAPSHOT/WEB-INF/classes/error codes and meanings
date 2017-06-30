@@ -1,0 +1,4 @@
+errorCodes and their meanings 
+
+1)415:  -content type not defined in request coming from front-end.
+                -vo does not have default constructor
