@@ -1,6 +1,7 @@
 package repositoryImpl;
 
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -16,9 +17,11 @@ public class UserRepositoryImpl implements UserRepository {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
+	final static Logger logger = Logger.getLogger(UserRepositoryImpl.class);
+	
 	public String SetDetails(User user) throws BusinessException{
 		String methodname="SetDetails";
-		System.out.println(methodname+" starts");
+		logger.info(methodname+" starts");
 		try{
 		if(jdbcTemplate.update((new StringBuilder("insert into SPRINGPROJECT.UserDetails(UserName,UserPassword) Values (?,?)")).toString(),new Object[]{user.getName(),user.getPassword()})==1)
 			return "Successful Login";

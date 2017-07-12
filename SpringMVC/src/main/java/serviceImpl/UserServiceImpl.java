@@ -1,5 +1,6 @@
 package serviceImpl;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +15,11 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	UserRepository userRepository;
 
+	final static Logger logger = Logger.getLogger(UserServiceImpl.class);
+	
 	public String SetDetails(User user) throws BusinessException{
 		String methodname="SetDetails";
-		System.out.println(methodname+" starts");
+		logger.info(methodname+" starts");
 		return userRepository.SetDetails(user);
 	}
 
