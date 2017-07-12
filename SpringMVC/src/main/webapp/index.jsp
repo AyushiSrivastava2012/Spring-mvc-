@@ -11,6 +11,6 @@
 		<title>Welcome</title>
 	</head> 
 	<body>
-		Click to enter
+		Go to : http://localhost:8007/MySpringMVC/SpringProject/login
 	</body>
 </html>

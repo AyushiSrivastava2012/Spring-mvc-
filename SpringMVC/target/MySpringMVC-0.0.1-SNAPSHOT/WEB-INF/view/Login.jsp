@@ -39,5 +39,5 @@
 
 	</table>
 	<input type="submit" ng-click="submitDetails()">
-
+{{message}}
 </body>

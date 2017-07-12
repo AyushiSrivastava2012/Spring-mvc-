@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="/Users/B0096708/workspaces/SpringMvcBackup2"/>
 			<item value="/Users/B0096708/workspaces/gitPracticeCoderx1234/Spring-mvc-/Spring-mvc-/SpringMVC"/>
 		</list>
 		<list key="projectNameTemplate">

@@ -7,9 +7,11 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- Uncomment and your base-package here: -->
+	<!-- Uncomment and your base-package here for scanning of your notations @service,@repository and @controller -->
 	<context:component-scan base-package="controller" />
-
+	<context:component-scan base-package="repositoryImpl" />
+	<context:component-scan base-package="serviceImpl" />
+	<!-- <context:property-placeholder location="SpringMVC/config.properties"/>	 -->
 
 	<mvc:annotation-driven />
 
@@ -20,5 +22,7 @@
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-
+	<!--  A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container.  -->
+	
+	
 </beans>
